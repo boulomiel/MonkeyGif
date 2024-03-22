@@ -56,7 +56,7 @@ class CollectionDecorator: NSObject, DecoratorProtocol {
     
     func setup() {
         setupNavigationBar()
-        emptyContent?.setEmptyType(.all)
+        emptyContent?.setEmptyType(.idle)
         collectionView?.setupGifCollectionView(dataSource: self, delegate: self)
         collectionView?.refreshControl = refreshControl
     }
@@ -65,8 +65,10 @@ class CollectionDecorator: NSObject, DecoratorProtocol {
         self.data = data
         self.collectionView?.reloadData()
         self.refreshControl.endRefreshing()
+        self.emptyContent?.setEmptyType(.all)
         let t: CGFloat = data.isEmpty ? 0.8 : 0
         UIView.animateBouncy(withDuration: 0.3) {[weak self] in
+            
             self?.emptyContent?.transform = .init(scaleX: t, y: t)
         } completion: { [weak self] _ in
             UIView.animateBouncy(withDuration: 0.5) {

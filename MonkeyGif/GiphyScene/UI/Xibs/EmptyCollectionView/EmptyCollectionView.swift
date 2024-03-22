@@ -10,7 +10,7 @@ import UIKit
 class EmptyCollectionView: XibView {
     
     enum EmptyType {
-        case all, favorite
+        case all, favorite, idle
         
         var label: String {
             switch self {
@@ -18,6 +18,8 @@ class EmptyCollectionView: XibView {
                 Texts.EmptySearch.all
             case .favorite:
                 Texts.EmptySearch.favorites
+            case .idle:
+                Texts.EmptySearch.idle
             }
         }
         
@@ -27,11 +29,13 @@ class EmptyCollectionView: XibView {
                     .init(sf: .camera)
             case .favorite:
                     .init(sf: .star)
+            case .idle:
+                    .init(sf: .loading)
             }
         }
     }
     
-    private var emptyType: EmptyType = .all {
+    private var emptyType: EmptyType = .idle {
         didSet {
             self.imageView?.image = emptyType.image
             self.labelView?.text = emptyType.label

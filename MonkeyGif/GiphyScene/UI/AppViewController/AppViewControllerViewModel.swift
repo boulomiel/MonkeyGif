@@ -13,13 +13,16 @@ import AsyncAlgorithms
 
 class AppViewControllerViewModel: NSObject, ObservableObject {
     
+    enum FetchState {
+        case idle, fetched([GifData]), failure(AppError)
+    }
+    
     private let apiKey: String
     private let interactor: ApiInteractor
     private var currentCount: Int
     @Published var searchState: SearchState
     @Published var searchText: String?
-    @Published private (set) var gifData: [GifData]
-    private (set) var errorEvent: PassthroughSubject<AppError, Never>
+    @Published private (set) var fetchState: FetchState
     
     var endPoints: EndPoints {
         let reader = PlistReader(keyList: .endPoint)
@@ -30,9 +33,8 @@ class AppViewControllerViewModel: NSObject, ObservableObject {
         self.apiKey = apiKey
         self.interactor = interactor
         self.currentCount = 0
-        self.gifData = []
+        self.fetchState = .idle
         self.searchState = .global
-        self.errorEvent = .init()
         super.init()
         observeSearch()
     }
@@ -42,14 +44,15 @@ class AppViewControllerViewModel: NSObject, ObservableObject {
             do {
                 try await interactor.save(gif)
             } catch {
-                errorEvent.send(.coreData(description: error.localizedDescription))
+                fetchState = .failure(.coreData(description: error.localizedDescription))
             }
         }
     }
     
     func observeSearch() {
         #if CANCALL
-        Task {
+        Task { [weak self] in
+            guard let self = self else { return }
             let result = self.$searchText
                 .compactMap { $0 }
                 .filter { !$0.isEmpty }
@@ -66,9 +69,9 @@ class AppViewControllerViewModel: NSObject, ObservableObject {
             for await r in result {
                 switch r {
                 case .success(let success):
-                    self.gifData = success
+                    self.fetchState = .fetched(success)
                 case .failure(let failure):
-                    self.errorEvent.send(failure)
+                    self.fetchState = .failure(failure)
                 }
             }
         }
@@ -77,16 +80,21 @@ class AppViewControllerViewModel: NSObject, ObservableObject {
     
     func updateTrendingScroll() {
         #if CANCALL
-        Task {
+        Task {[weak self] in
+            guard let self = self else { return }
             let result =  await interactor.fetchTrending(.init(apiKey: apiKey, path: endPoints.trending, limit: 50, offset: currentCount))
             switch result {
             case .success(let success):
                 await MainActor.run {
-                    gifData.append(contentsOf: success)
-                    currentCount += 50
+                    if case let .fetched(data) = self.fetchState {
+                        self.fetchState = .fetched(data+success)
+                    } else {
+                        self.fetchState = .fetched(success)
+                    }
+                    self.currentCount += 50
                 }
             case .failure(let failure):
-                errorEvent.send(failure)
+                self.fetchState = .failure(failure)
             }
         }
         #endif

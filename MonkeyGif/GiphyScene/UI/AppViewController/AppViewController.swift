@@ -65,19 +65,17 @@ class AppViewController: UIViewController, UISearchResultsUpdating, ViewControll
     }
     
     func observeDataChanges() {
-        viewModel.$gifData
+        viewModel.$fetchState
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] data in
-                self?.collectionDecorator.update(data: data)
-            }
-            .store(in: &subscriptions)
-        
-        viewModel.errorEvent
-            .receive(on: DispatchQueue.main)
-            .compactMap { $0 }
-            .map { AppErrorModel(error: $0)}
-            .sink {[weak self] error in
-                self?.showAlert(error)
+            .sink {[weak self] state in
+                switch state {
+                case .fetched(let gifs):
+                    self?.collectionDecorator.update(data: gifs)
+                case .failure(let appError):
+                    self?.showAlert(.init(error: appError))
+                default:
+                    break
+                }
             }
             .store(in: &subscriptions)
         
