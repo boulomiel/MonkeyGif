@@ -50,15 +50,15 @@ class FavoriteDecoratorProtocol: NSObject, DecoratorProtocol {
         emptyContent.setEmptyType(.favorite)
         setupNavigationBar()
     }
-    
-    func setupNavigationBar() {
-        guard let holder  else { return }
-        holder.navigationItem.leftBarButtonItem = .init(image: .init(sf: .chevronLeft), style: .plain, target: holder, action: #selector(holder.backButtonAction))
-    }
 
     func update(data: NSDiffableDataSourceSnapshot<Int, MGGif>) {
         diffableDataSource?.apply(data, animatingDifferences: true)
         collectionView?.reloadData()
         holder?.emptyFavoriteView.isHidden = !data.itemIdentifiers.isEmpty
+    }
+    
+    private func setupNavigationBar() {
+        guard let holder  else { return }
+        holder.navigationItem.leftBarButtonItem = .init(image: .init(sf: .chevronLeft), style: .plain, target: holder, action: #selector(holder.backButtonAction))
     }
 }

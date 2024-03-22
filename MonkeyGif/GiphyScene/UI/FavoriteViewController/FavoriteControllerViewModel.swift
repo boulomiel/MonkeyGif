@@ -12,7 +12,7 @@ import UIKit
 class FavoriteViewControllerViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
     
     private var fetchedResultsController: NSFetchedResultsController<MGGif>?
-    @Published var dataSnapShot: NSDiffableDataSourceSnapshot<Int, MGGif>
+    @Published private(set) var dataSnapShot: NSDiffableDataSourceSnapshot<Int, MGGif>
 
     init(fetchedResultsController: NSFetchedResultsController<MGGif>? = nil) {
         self.fetchedResultsController = fetchedResultsController

@@ -13,8 +13,7 @@ class GifViewCell: UICollectionViewCell {
     
     static let identifier: String = "GifViewCell"
     
-    @IBOutlet weak var gifImageView: UIImageView!
-    var subscriptions: Set<AnyCancellable> = .init()
+    @IBOutlet weak private (set) var gifImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

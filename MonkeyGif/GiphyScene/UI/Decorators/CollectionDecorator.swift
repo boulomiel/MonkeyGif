@@ -60,14 +60,6 @@ class CollectionDecorator: NSObject, DecoratorProtocol {
         collectionView?.setupGifCollectionView(dataSource: self, delegate: self)
         collectionView?.refreshControl = refreshControl
     }
-    
-    func setupNavigationBar() {
-        UINavigationBar.appearance().isTranslucent = true
-        UINavigationBar.appearance().backgroundColor = .black
-        guard let holder = holder else { return }
-        holder.navigationItem.rightBarButtonItem = UIBarButtonItem(image: .init(sf: .star), style: .plain, target: holder, action: #selector(holder.showFavorites))
-        holder.navigationItem.leftBarButtonItem = .init(customView: makeSwitch())
-    }
 
     func update(data: [GifData]) {
         self.data = data
@@ -90,6 +82,14 @@ class CollectionDecorator: NSObject, DecoratorProtocol {
             toggle.addAction(holder.switchAction, for: .valueChanged)
         }
         return toggle
+    }
+    
+    private func setupNavigationBar() {
+        UINavigationBar.appearance().isTranslucent = true
+        UINavigationBar.appearance().backgroundColor = .black
+        guard let holder = holder else { return }
+        holder.navigationItem.rightBarButtonItem = UIBarButtonItem(image: .init(sf: .star), style: .plain, target: holder, action: #selector(holder.showFavorites))
+        holder.navigationItem.leftBarButtonItem = .init(customView: makeSwitch())
     }
     
     private func contextMenu(gifData: GifData) -> UIMenu {

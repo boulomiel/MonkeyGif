@@ -11,7 +11,11 @@ import CoreData
 
 struct GifRepository {
     
-    let controller: GifController
+    private let controller: GifController
+    
+    init(controller: GifController) {
+        self.controller = controller
+    }
     
     func save(_ gifData: [GifData]) async throws {
         try await controller.save(gifData)

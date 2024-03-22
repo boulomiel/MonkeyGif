@@ -17,8 +17,8 @@ class AppViewController: UIViewController, UISearchResultsUpdating, ViewControll
     
     @IBOutlet weak var emptyContent: EmptyCollectionView!
     @IBOutlet var collectionView: UICollectionView!
-    let viewModel: AppViewControllerViewModel
-    var subscriptions: Set<AnyCancellable>
+    private let viewModel: AppViewControllerViewModel
+    private var subscriptions: Set<AnyCancellable>
 
     lazy var collectionDecorator: CollectionDecorator = {
         CollectionDecorator(holder: self)
