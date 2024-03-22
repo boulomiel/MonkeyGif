@@ -12,7 +12,8 @@ extension UIImage {
     enum SF: String {
         case chevronLeft = "chevron.left"
         case camera = "camera"
-        case star = "star"
+        case star = "star.fill"
+        case loading = "arrow.circlepath"
     }
     
     convenience init(sf: SF) {
