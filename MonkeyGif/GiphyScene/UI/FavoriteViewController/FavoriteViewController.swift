@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class FavoriteViewController: UIViewController, ViewControllerProtocol, CollectionFavoriteProtocol {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var emptyFavoriteView: EmptyCollectionView!
     
@@ -36,19 +36,26 @@ class FavoriteViewController: UIViewController, ViewControllerProtocol, Collecti
         setupUI()
         observeDataChanges()
     }
-
+    
     func setupUI() {
         favoriteDecorator.setup()
     }
     func observeDataChanges() {
-        viewModel.$dataSnapShot
+        viewModel.$fetchState
             .receive(on: DispatchQueue.main)
-            .sink {[weak self] snaphost in
-                self?.favoriteDecorator.update(data: snaphost)
+            .sink {[weak self] state in
+                switch state {
+                case .idle:
+                    break
+                case .fetched(let data):
+                    self?.favoriteDecorator.update(data: data)
+                case .failure(let error):
+                    self?.showAlert(.init(error: error))
+                }
             }
             .store(in: &subscriptions)
     }
-
+    
     @objc func backButtonAction() {
         self.dismiss(animated: true)
     }

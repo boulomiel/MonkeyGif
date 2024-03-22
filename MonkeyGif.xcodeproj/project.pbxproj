@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		879A801C2BADA1690057724D /* FetchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801B2BADA1690057724D /* FetchState.swift */; };
+		879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801D2BADA3E10057724D /* Extension+UIViewController.swift */; };
 		87C0F6D82BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6D72BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift */; };
 		87C0F6DA2BAB4E8D002D54F9 /* Extension+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6D92BAB4E8D002D54F9 /* Extension+CollectionView.swift */; };
 		87C0F6DC2BAC056A002D54F9 /* AppErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6DB2BAC056A002D54F9 /* AppErrorModel.swift */; };
@@ -76,6 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		879A801B2BADA1690057724D /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
+		879A801D2BADA3E10057724D /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		87C0F6D72BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionViewCompositionalLayout.swift"; sourceTree = "<group>"; };
 		87C0F6D92BAB4E8D002D54F9 /* Extension+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CollectionView.swift"; sourceTree = "<group>"; };
 		87C0F6DB2BAC056A002D54F9 /* AppErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorModel.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				87F82A702BA9C4E8006C7D06 /* AppError.swift */,
 				87C0F6DB2BAC056A002D54F9 /* AppErrorModel.swift */,
 				87C0F6ED2BAC672B002D54F9 /* GifData.swift */,
+				879A801B2BADA1690057724D /* FetchState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 				87C0F6D72BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift */,
 				87C0F6D92BAB4E8D002D54F9 /* Extension+CollectionView.swift */,
 				87C0F6EF2BAC6760002D54F9 /* Extension+UIImage.swift */,
+				879A801D2BADA3E10057724D /* Extension+UIViewController.swift */,
 			);
 			path = "Extension ";
 			sourceTree = "<group>";
@@ -487,6 +493,7 @@
 				87F82A622BA9BAAF006C7D06 /* PlistReader.swift in Sources */,
 				87F82A692BA9BC3A006C7D06 /* ApiQueryProtocol.swift in Sources */,
 				87F82A992BAAD618006C7D06 /* Extension+UIView.swift in Sources */,
+				879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */,
 				87F82A642BA9BBBE006C7D06 /* TrendingApi.swift in Sources */,
 				87F82A5D2BA9B8B0006C7D06 /* AppViewController.swift in Sources */,
 				87F82A932BAAC8AD006C7D06 /* GifViewCell.swift in Sources */,
@@ -500,6 +507,7 @@
 				87F82A452BA9B83A006C7D06 /* MonkeyGifApp.swift in Sources */,
 				87F82A4C2BA9B83A006C7D06 /* ContentView.swift in Sources */,
 				87F82A712BA9C4E8006C7D06 /* AppError.swift in Sources */,
+				879A801C2BADA1690057724D /* FetchState.swift in Sources */,
 				87C0F6D82BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift in Sources */,
 				87C0F6FE2BAD5F7F002D54F9 /* XibView.swift in Sources */,
 				87F82A472BA9B83A006C7D06 /* Persistence.swift in Sources */,

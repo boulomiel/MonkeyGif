@@ -86,12 +86,6 @@ class AppViewController: UIViewController, UISearchResultsUpdating, ViewControll
             }
             .store(in: &subscriptions)
     }
-
-    private func showAlert(_ model: AppErrorModel) {
-        let alertVC = UIAlertController(title: model.title, message: model.message, preferredStyle: .alert)
-        alertVC.addAction(.init(title: Texts.Alert.action, style: .cancel))
-        present(alertVC, animated: true)
-    }
     
     @objc func showFavorites() {
         let favoriteVC =  FavoriteViewController(viewModel: .init())

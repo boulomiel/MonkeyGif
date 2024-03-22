@@ -12,17 +12,13 @@ import UIKit
 import AsyncAlgorithms
 
 class AppViewControllerViewModel: NSObject, ObservableObject {
-    
-    enum FetchState {
-        case idle, fetched([GifData]), failure(AppError)
-    }
-    
+        
     private let apiKey: String
     private let interactor: ApiInteractor
     private var currentCount: Int
     @Published var searchState: SearchState
     @Published var searchText: String?
-    @Published private (set) var fetchState: FetchState
+    @Published private (set) var fetchState: FetchState<[GifData]>
     
     var endPoints: EndPoints {
         let reader = PlistReader(keyList: .endPoint)

@@ -12,11 +12,11 @@ import UIKit
 class FavoriteViewControllerViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
     
     private var fetchedResultsController: NSFetchedResultsController<MGGif>?
-    @Published private(set) var dataSnapShot: NSDiffableDataSourceSnapshot<Int, MGGif>
-
+    @Published private(set) var fetchState: FetchState<NSDiffableDataSourceSnapshot<Int, MGGif>>
+    
     init(fetchedResultsController: NSFetchedResultsController<MGGif>? = nil) {
         self.fetchedResultsController = fetchedResultsController
-        self.dataSnapShot = .init()
+        self.fetchState = .idle
         super.init()
         loadSavedData()
     }
@@ -36,7 +36,7 @@ class FavoriteViewControllerViewModel: NSObject, ObservableObject, NSFetchedResu
             try fetchedResultsController?.performFetch()
             updateSnapshot()
         } catch {
-            print("Fetch failed")
+            fetchState = .failure(.coreData(description: error.localizedDescription))
         }
     }
     
@@ -44,7 +44,7 @@ class FavoriteViewControllerViewModel: NSObject, ObservableObject, NSFetchedResu
         var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Int, MGGif>()
         diffableDataSourceSnapshot.appendSections([0])
         diffableDataSourceSnapshot.appendItems(fetchedResultsController?.fetchedObjects ?? [])
-        self.dataSnapShot = diffableDataSourceSnapshot
+        fetchState = .fetched(diffableDataSourceSnapshot)
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<any NSFetchRequestResult>) {
