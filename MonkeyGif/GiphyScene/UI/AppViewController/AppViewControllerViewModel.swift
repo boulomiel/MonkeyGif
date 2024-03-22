@@ -87,7 +87,7 @@ class AppViewControllerViewModel: NSObject, ObservableObject {
             case .success(let success):
                 await MainActor.run {
                     if case let .fetched(data) = self.fetchState {
-                        self.fetchState = .fetched(data+success)
+                        self.fetchState = .fetched(success+data)
                     } else {
                         self.fetchState = .fetched(success)
                     }
