@@ -22,13 +22,14 @@
 - The app is wrapped in UIRepresentable to be added with SwiftUI
 - 2 UIViewControllers + 2 nibs
 - 1 Custom cell view + nib
+- 1 Custom view (Empty view)
 - Decoractors
 
 
 ## Libraries
 
 - SwiftyGif to read gifs imported through Carthage as xcframework - SPM wasnt available.
-
+- swift-async-algorithms
 
 ## How to use
 
