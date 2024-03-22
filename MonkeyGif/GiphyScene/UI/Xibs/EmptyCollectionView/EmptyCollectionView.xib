@@ -27,8 +27,11 @@
                         <constraint firstAttribute="width" constant="240" id="xaB-4b-L7S"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7o-ti-dmH">
-                    <rect key="frame" x="167" y="452" width="59" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7o-ti-dmH">
+                    <rect key="frame" x="167" y="452" width="59" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="3gY-tv-RR7"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <color key="textColor" name="AccentColor"/>
                     <nil key="highlightedColor"/>
