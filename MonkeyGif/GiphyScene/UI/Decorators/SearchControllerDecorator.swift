@@ -28,20 +28,19 @@ class SearchControllerDecorator:NSObject, DecoratorProtocol {
     weak var holder: Holder
     
     private var searchBar: UISearchController = {
-           let sb = UISearchController()
-            sb.searchBar.placeholder = SearchState.global.title
-           sb.searchBar.searchBarStyle = .minimal
-           return sb
-       }()
+        let sb = UISearchController()
+        sb.searchBar.placeholder = SearchState.global.title
+        sb.searchBar.searchBarStyle = .minimal
+        return sb
+    }()
     
     init(controller: Holder) {
         holder = controller
         super.init()
-        searchBar.obscuresBackgroundDuringPresentation = false
     }
     
     func setup() {
-        searchBar.obscuresBackgroundDuringPresentation = false
+        searchBar.obscuresBackgroundDuringPresentation = true
         searchBar.searchResultsUpdater = holder
         holder?.navigationItem.searchController = searchBar
         holder?.definesPresentationContext = true

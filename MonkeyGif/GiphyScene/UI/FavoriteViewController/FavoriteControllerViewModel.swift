@@ -9,10 +9,10 @@ import Foundation
 import CoreData
 import UIKit
 
-class FavoriteViewControllerViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
+class FavoriteViewControllerViewModel: NSObject, NSFetchedResultsControllerDelegate, FetchingViewModelProtocol {
     
     private var fetchedResultsController: NSFetchedResultsController<MGGif>?
-    @Published private(set) var fetchState: FetchState<NSDiffableDataSourceSnapshot<Int, MGGif>>
+    @Published var fetchState: FetchState<NSDiffableDataSourceSnapshot<Int, MGGif>>
     
     init(fetchedResultsController: NSFetchedResultsController<MGGif>? = nil) {
         self.fetchedResultsController = fetchedResultsController

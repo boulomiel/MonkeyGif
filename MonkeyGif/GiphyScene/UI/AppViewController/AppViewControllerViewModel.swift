@@ -11,14 +11,14 @@ import CoreData
 import UIKit
 import AsyncAlgorithms
 
-class AppViewControllerViewModel: NSObject, ObservableObject {
+class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
         
     private let apiKey: String
     private let interactor: ApiInteractor
     private var currentCount: Int
     @Published var searchState: SearchState
     @Published var searchText: String?
-    @Published private (set) var fetchState: FetchState<[GifData]>
+    @Published var fetchState: FetchState<[GifData]>
     
     var endPoints: EndPoints {
         let reader = PlistReader(keyList: .endPoint)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		879A801C2BADA1690057724D /* FetchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801B2BADA1690057724D /* FetchState.swift */; };
 		879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801D2BADA3E10057724D /* Extension+UIViewController.swift */; };
+		879A80212BADCEFD0057724D /* FetchingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */; };
 		87C0F6D82BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6D72BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift */; };
 		87C0F6DA2BAB4E8D002D54F9 /* Extension+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6D92BAB4E8D002D54F9 /* Extension+CollectionView.swift */; };
 		87C0F6DC2BAC056A002D54F9 /* AppErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6DB2BAC056A002D54F9 /* AppErrorModel.swift */; };
@@ -80,6 +81,7 @@
 /* Begin PBXFileReference section */
 		879A801B2BADA1690057724D /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
 		879A801D2BADA3E10057724D /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingViewModelProtocol.swift; sourceTree = "<group>"; };
 		87C0F6D72BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionViewCompositionalLayout.swift"; sourceTree = "<group>"; };
 		87C0F6D92BAB4E8D002D54F9 /* Extension+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CollectionView.swift"; sourceTree = "<group>"; };
 		87C0F6DB2BAC056A002D54F9 /* AppErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorModel.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		879A801F2BADCEEB0057724D /* ViewModelProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */,
+			);
+			path = ViewModelProtocol;
+			sourceTree = "<group>";
+		};
 		87C0F6E12BAC4D25002D54F9 /* GiphyScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +270,7 @@
 		87F82A582BA9B878006C7D06 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				879A801F2BADCEEB0057724D /* ViewModelProtocol */,
 				87C0F7092BAD6EAF002D54F9 /* Text */,
 				87C0F6F72BAC9DD4002D54F9 /* Xibs */,
 				87F82AC72BAB4AFA006C7D06 /* FavoriteViewController */,
@@ -497,6 +508,7 @@
 				87F82A642BA9BBBE006C7D06 /* TrendingApi.swift in Sources */,
 				87F82A5D2BA9B8B0006C7D06 /* AppViewController.swift in Sources */,
 				87F82A932BAAC8AD006C7D06 /* GifViewCell.swift in Sources */,
+				879A80212BADCEFD0057724D /* FetchingViewModelProtocol.swift in Sources */,
 				87C0F6F02BAC6760002D54F9 /* Extension+UIImage.swift in Sources */,
 				87C0F6DC2BAC056A002D54F9 /* AppErrorModel.swift in Sources */,
 				87F82A4A2BA9B83A006C7D06 /* MonkeyGif.xcdatamodeld in Sources */,
