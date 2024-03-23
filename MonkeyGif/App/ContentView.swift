@@ -25,7 +25,10 @@ struct AppRepresentable: UIViewControllerRepresentable {
     let apiKey: String
     
     func makeUIViewController(context: Context) -> some UIViewController {
-        let viewModel: AppViewControllerViewModel = .init(apiKey: apiKey, interactor: .init(repository: .init(controller: .init(controller: .shared))))
+        let controller: GifControllerProtocol = GifController(controller: .shared)
+        let repository: GifRepositoryProtocol = GifRepository(controller: controller, urlSession: .envSession)
+        let interactor: ApiInteractorProtocol = ApiInteractor(repository: repository)
+        let viewModel: AppViewControllerViewModel = .init(apiKey: apiKey, interactor: interactor)
         let appController =  AppViewController(viewModel: viewModel)
         return UINavigationController(rootViewController: appController)
     }

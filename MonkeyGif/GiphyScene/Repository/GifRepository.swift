@@ -8,13 +8,22 @@
 import Foundation
 import CoreData
 
+protocol GifRepositoryProtocol {
+    var controller: GifControllerProtocol { get }
+    func save(_ gifData: [GifData]) async throws
+    func fetchTrending(_ query: TrendingQuery) async -> GifDataResult
+    func getGifById(_ query: GetByIdQuery) async -> GifDataResult
+    func searchGif(_ query: SearchQuery)  async -> GifDataResult
+}
 
-struct GifRepository {
+struct GifRepository: GifRepositoryProtocol {
     
-    private let controller: GifController
+    let controller: GifControllerProtocol
+    let urlSession: URLSession
     
-    init(controller: GifController) {
+    init(controller: GifControllerProtocol, urlSession: URLSession) {
         self.controller = controller
+        self.urlSession = urlSession
     }
     
     func save(_ gifData: [GifData]) async throws {
@@ -23,7 +32,7 @@ struct GifRepository {
     
     func fetchTrending(_ query: TrendingQuery) async -> GifDataResult{
         let trendingApi = TrendingApi(query: query)
-        let result =  await trendingApi.fetch(query: query)
+        let result =  await trendingApi.fetch(session: urlSession)
         switch result {
         case .success(let data):
             let gifData = data.data.map { $0.toGifData() }
@@ -35,7 +44,7 @@ struct GifRepository {
     
     func getGifById(_ query: GetByIdQuery) async -> GifDataResult {
         let getByIdApi = GetByIdApi(query: query)
-        let result = await getByIdApi.fetch(query: query)
+        let result = await getByIdApi.fetch(session: urlSession)
         switch result {
         case .success(let data):
             let data = data.data.toGifData()
@@ -45,9 +54,9 @@ struct GifRepository {
         }
     }
     
-    func searchGif(_ query: SearchQuery)  async -> GifDataResult{
+    func searchGif(_ query: SearchQuery)  async -> GifDataResult {
         let searchApi = SearchQueryApi(query: query)
-        let result = await searchApi.fetch(query: query)
+        let result = await searchApi.fetch(session: urlSession)
         switch result {
         case .success(let data):
             let gifData = data.data.map { $0.toGifData() }

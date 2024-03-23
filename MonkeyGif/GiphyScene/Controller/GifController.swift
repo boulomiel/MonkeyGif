@@ -8,7 +8,11 @@
 import Foundation
 import CoreData
 
-struct GifController {
+protocol GifControllerProtocol {
+    func save(_ gifData: [GifData]) async throws
+}
+
+struct GifController: GifControllerProtocol {
     
     let controller: PersistenceController
     

@@ -14,7 +14,7 @@ import AsyncAlgorithms
 class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
         
     private let apiKey: String
-    private let interactor: ApiInteractor
+    private let interactor: ApiInteractorProtocol
     private var currentCount: Int
     @Published var searchState: SearchState
     @Published var searchText: String?
@@ -25,7 +25,7 @@ class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
         return reader.read()
     }
     
-    init(apiKey: String, interactor: ApiInteractor) {
+    init(apiKey: String, interactor: ApiInteractorProtocol) {
         self.apiKey = apiKey
         self.interactor = interactor
         self.currentCount = 0

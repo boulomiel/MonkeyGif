@@ -11,7 +11,7 @@ extension Datum {
     func toGifData(offset: Int = -1) -> GifData {
         return GifData(
             imageId: UUID(),
-            url: images.downsized?.url ?? images.original.url,
+            url: images?.downsized?.url ?? images?.original.url ?? "",
             isFavorite: false
         )
     }
@@ -38,7 +38,7 @@ struct Datum: Codable {
     let sourcePostURL: String
     let isSticker: Int
     let importDatetime, trendingDatetime: String
-    let images: Images
+    let images: Images?
     let user: User?
     let analyticsResponsePayload: String
     let analytics: Analytics

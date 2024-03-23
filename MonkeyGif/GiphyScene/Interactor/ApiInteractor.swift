@@ -7,11 +7,18 @@
 
 import Foundation
 
-struct ApiInteractor {
+protocol ApiInteractorProtocol {
+    func save(_ gif: GifData) async throws
+    func fetchTrending(_ query: TrendingQuery) async -> GifDataResult
+    func getGifById(_ query: GetByIdQuery) async -> GifDataResult
+    func searchGif(_ query: SearchQuery)  async -> GifDataResult
+}
+
+struct ApiInteractor: ApiInteractorProtocol {
     
-    private let repository: GifRepository
+    private let repository: GifRepositoryProtocol
     
-    init(repository: GifRepository = .init(controller: .init(controller: .shared))) {
+    init(repository: GifRepositoryProtocol) {
         self.repository = repository
     }
 
