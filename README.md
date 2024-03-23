@@ -14,6 +14,7 @@
 ## Run Config
 
 - Debug, Release
+- Test : Runs only test
 - Preview :  in order to work on the UI without having to handle the 424 call error of too much requests
 
 
@@ -26,6 +27,11 @@
 - Decoractors
 
 
+## Tests
+
+- URLProtocol mock for session environment, values saved in folder Mocks
+
+ 
 ## Libraries
 
 - SwiftyGif to read gifs imported through Carthage as xcframework - SPM wasnt available.
@@ -38,3 +44,4 @@
 - Here is a test ID : xT4uQulxzV39haRFjG
 - The star button at the top trailing open the favorites saved
 - To add a favorite, long press on it and on the context menu select add favorite
+
