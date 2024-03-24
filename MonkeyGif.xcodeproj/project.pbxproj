@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -57,7 +57,6 @@
 		87F82A8B2BAABE45006C7D06 /* CollectionDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A8A2BAABE45006C7D06 /* CollectionDecorator.swift */; };
 		87F82A922BAAC8AD006C7D06 /* GifViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F82A912BAAC8AD006C7D06 /* GifViewCell.xib */; };
 		87F82A932BAAC8AD006C7D06 /* GifViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A902BAAC8AD006C7D06 /* GifViewCell.swift */; };
-		87F82A972BAAD1DD006C7D06 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 87F82A962BAAD1DD006C7D06 /* AsyncAlgorithms */; };
 		87F82A992BAAD618006C7D06 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A982BAAD618006C7D06 /* Extension+UIView.swift */; };
 		87F82A9B2BAAD63C006C7D06 /* Extension+ Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A9A2BAAD63C006C7D06 /* Extension+ Publishers.swift */; };
 		87F82A9D2BAB21F9006C7D06 /* Extension+MGGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A9C2BAB21F9006C7D06 /* Extension+MGGif.swift */; };
@@ -174,7 +173,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				87F82AB82BAB2F44006C7D06 /* SwiftyGif.xcframework in Frameworks */,
-				87F82A972BAAD1DD006C7D06 /* AsyncAlgorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +499,6 @@
 			);
 			name = MonkeyGif;
 			packageProductDependencies = (
-				87F82A962BAAD1DD006C7D06 /* AsyncAlgorithms */,
 			);
 			productName = MonkeyGif;
 			productReference = 87F82A412BA9B83A006C7D06 /* MonkeyGif.app */;
@@ -536,7 +533,7 @@
 			);
 			mainGroup = 87F82A382BA9B83A006C7D06;
 			packageReferences = (
-				87F82A952BAAD1DD006C7D06 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
+				8751A1552BAFF6E2009FC688 /* XCLocalSwiftPackageReference "swift-async-algorithms-1.0.0" */,
 			);
 			productRefGroup = 87F82A422BA9B83A006C7D06 /* Products */;
 			projectDirPath = "";
@@ -1169,24 +1166,12 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		87F82A952BAAD1DD006C7D06 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		8751A1552BAFF6E2009FC688 /* XCLocalSwiftPackageReference "swift-async-algorithms-1.0.0" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "swift-async-algorithms-1.0.0";
 		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		87F82A962BAAD1DD006C7D06 /* AsyncAlgorithms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 87F82A952BAAD1DD006C7D06 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
-			productName = AsyncAlgorithms;
-		};
-/* End XCSwiftPackageProductDependency section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		87F82A482BA9B83A006C7D06 /* MonkeyGif.xcdatamodeld */ = {

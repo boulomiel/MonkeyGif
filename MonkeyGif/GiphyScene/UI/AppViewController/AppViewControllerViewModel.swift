@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import CoreData
 import UIKit
-import AsyncAlgorithms
 
 class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
         

@@ -11,7 +11,6 @@ import CoreData
 struct ContentView: View {
     
     let apiKey: String
-    @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
         AppRepresentable(apiKey: apiKey)
