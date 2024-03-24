@@ -35,7 +35,7 @@
 ## Libraries
 
 - SwiftyGif to read gifs imported through Carthage as xcframework - SPM wasnt available.
-- swift-async-algorithms
+- swift-async-algorithms -  Locally, updated ios version so it supports arm64 (previews and simulator usage)
 
 ## How to use
 
