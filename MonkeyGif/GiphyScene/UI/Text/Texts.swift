@@ -13,7 +13,7 @@ enum Texts {
         static let bydId = "Insert a gif id only"
     }
     enum EmptySearch {
-        static let all = "No gifs found ! \n Pull to refresh"
+        static let all = "No gifs found ! \n Tap and pull to refresh"
         static let favorites = "No gifs saved yet !"
         static let idle = "Loading Gifs"
     }
