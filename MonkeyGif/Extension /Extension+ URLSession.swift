@@ -51,7 +51,7 @@ extension URLSession {
     }
     
     static var envSession: URLSession {
-#if TEST
+#if TEST || UIDEBUG
         return Self.mock
 #else
         return Self.shared

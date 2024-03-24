@@ -46,7 +46,6 @@ class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
     }
     
     func observeSearch() {
-        #if CANCALL
         Task { [weak self] in
             guard let self = self else { return }
             let result = self.$searchText
@@ -71,11 +70,9 @@ class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
                 }
             }
         }
-        #endif
     }
     
     func updateTrendingScroll() {
-        #if CANCALL
         Task {[weak self] in
             guard let self = self else { return }
             let result =  await interactor.fetchTrending(.init(apiKey: apiKey, path: endPoints.trending, limit: 50, offset: currentCount))
@@ -93,7 +90,6 @@ class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
                 self.fetchState = .failure(failure)
             }
         }
-        #endif
     }
     
     func toggleSearchState() {
