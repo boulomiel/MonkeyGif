@@ -8,13 +8,6 @@
 import UIKit
 import Combine
 
-protocol ViewControllerProtocol {
-    associatedtype Coordinator
-    var coordinator: Coordinator { get }
-    func setupUI()
-    func observeDataChanges()
-}
-
 class AppViewController: UIViewController, UISearchResultsUpdating, ViewControllerProtocol, CollectionRequestProtocol {
                 
     @IBOutlet weak var emptyContent: EmptyCollectionView!

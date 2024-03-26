@@ -19,6 +19,7 @@
 		8751A1972BB2B187009FC688 /* GiphySceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A1962BB2B187009FC688 /* GiphySceneCoordinator.swift */; };
 		8751A1992BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A1982BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift */; };
 		8751A19B2BB2BA07009FC688 /* AppViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A19A2BB2BA07009FC688 /* AppViewControllerCoordinator.swift */; };
+		8751A19D2BB2BB80009FC688 /* ViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A19C2BB2BB80009FC688 /* ViewControllerProtocol.swift */; };
 		879A801C2BADA1690057724D /* FetchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801B2BADA1690057724D /* FetchState.swift */; };
 		879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801D2BADA3E10057724D /* Extension+UIViewController.swift */; };
 		879A80212BADCEFD0057724D /* FetchingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */; };
@@ -110,6 +111,7 @@
 		8751A1962BB2B187009FC688 /* GiphySceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySceneCoordinator.swift; sourceTree = "<group>"; };
 		8751A1982BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewControllerCoordinator.swift; sourceTree = "<group>"; };
 		8751A19A2BB2BA07009FC688 /* AppViewControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewControllerCoordinator.swift; sourceTree = "<group>"; };
+		8751A19C2BB2BB80009FC688 /* ViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerProtocol.swift; sourceTree = "<group>"; };
 		879A801B2BADA1690057724D /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
 		879A801D2BADA3E10057724D /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -209,12 +211,13 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		879A801F2BADCEEB0057724D /* ViewModelProtocol */ = {
+		879A801F2BADCEEB0057724D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */,
+				8751A19C2BB2BB80009FC688 /* ViewControllerProtocol.swift */,
 			);
-			path = ViewModelProtocol;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		879A80272BADD2950057724D /* MonkeyGifTests */ = {
@@ -341,7 +344,7 @@
 		87F82A582BA9B878006C7D06 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				879A801F2BADCEEB0057724D /* ViewModelProtocol */,
+				879A801F2BADCEEB0057724D /* Protocols */,
 				87C0F7092BAD6EAF002D54F9 /* Text */,
 				87C0F6F72BAC9DD4002D54F9 /* Xibs */,
 				87F82AC72BAB4AFA006C7D06 /* FavoriteViewController */,
@@ -630,6 +633,7 @@
 				879A80212BADCEFD0057724D /* FetchingViewModelProtocol.swift in Sources */,
 				87C0F6F02BAC6760002D54F9 /* Extension+UIImage.swift in Sources */,
 				8751A14B2BAED36E009FC688 /* TrendingMock.swift in Sources */,
+				8751A19D2BB2BB80009FC688 /* ViewControllerProtocol.swift in Sources */,
 				87C0F6DC2BAC056A002D54F9 /* AppErrorModel.swift in Sources */,
 				87F82A4A2BA9B83A006C7D06 /* MonkeyGif.xcdatamodeld in Sources */,
 				87C0F6E72BAC50B9002D54F9 /* PlistDecodable.swift in Sources */,
