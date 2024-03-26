@@ -33,34 +33,30 @@ struct GifRepository: GifRepositoryProtocol {
     func fetchTrending(_ query: TrendingQuery) async -> GifDataResult{
         let trendingApi = TrendingApi(query: query)
         let result =  await trendingApi.fetch(session: urlSession)
-        switch result {
-        case .success(let data):
-            let gifData = data.data.map { $0.toGifData() }
-            return .success(gifData)
-        case .failure(let error):
-            return .failure(error)
-        }
+        return handleResult(result: result)
     }
     
     func getGifById(_ query: GetByIdQuery) async -> GifDataResult {
         let getByIdApi = GetByIdApi(query: query)
         let result = await getByIdApi.fetch(session: urlSession)
-        switch result {
-        case .success(let data):
-            let data = data.data.toGifData()
-            return .success([data])
-        case .failure(let failure):
-            return .failure(failure)
-        }
+        return handleResult(result: result)
     }
     
-    func searchGif(_ query: SearchQuery)  async -> GifDataResult {
+    func searchGif(_ query: SearchQuery) async -> GifDataResult {
         let searchApi = SearchQueryApi(query: query)
         let result = await searchApi.fetch(session: urlSession)
+        return handleResult(result: result)
+    }
+    
+    private func handleResult<T: GifyFetchedData>(result: Result<T, AppError>) -> GifDataResult {
         switch result {
         case .success(let data):
-            let gifData = data.data.map { $0.toGifData() }
-            return .success(gifData)
+            do {
+                let gifData = try data.map()
+                return .success(gifData)
+            } catch {
+                return .failure(.decoding(description: error.localizedDescription))
+            }
         case .failure(let error):
             return .failure(error)
         }

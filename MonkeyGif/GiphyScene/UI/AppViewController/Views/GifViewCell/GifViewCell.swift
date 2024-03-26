@@ -23,11 +23,7 @@ class GifViewCell: UICollectionViewCell {
     func setup(gifData : GifData) {
         let loader = UIActivityIndicatorView()
         loader.style = .medium
-        if let url = URL(string: gifData.url) {
-            self.gifImageView.setGifFromURL(url, customLoader: loader)
-        } else {
-            self.gifImageView.image = .init(sf: .camera)
-        }
+        self.gifImageView.setGifFromURL(gifData.url, customLoader: loader)
     }
     
     override func prepareForReuse() {

@@ -14,6 +14,8 @@
 		8751A14E2BAED738009FC688 /* TrendingMock.swift in Resources */ = {isa = PBXBuildFile; fileRef = 8751A14A2BAED36E009FC688 /* TrendingMock.swift */; };
 		8751A14F2BAED73A009FC688 /* SearchMock.swift in Resources */ = {isa = PBXBuildFile; fileRef = 8751A14C2BAED3B2009FC688 /* SearchMock.swift */; };
 		8751A1502BAED73D009FC688 /* GetGifByIdMock.swift in Resources */ = {isa = PBXBuildFile; fileRef = 8751A1482BAED32F009FC688 /* GetGifByIdMock.swift */; };
+		8751A1922BB2AFD6009FC688 /* GifyFetchedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A1912BB2AFD6009FC688 /* GifyFetchedData.swift */; };
+		8751A1942BB2AFFA009FC688 /* Datum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A1932BB2AFFA009FC688 /* Datum.swift */; };
 		879A801C2BADA1690057724D /* FetchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801B2BADA1690057724D /* FetchState.swift */; };
 		879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801D2BADA3E10057724D /* Extension+UIViewController.swift */; };
 		879A80212BADCEFD0057724D /* FetchingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */; };
@@ -100,6 +102,8 @@
 		8751A1482BAED32F009FC688 /* GetGifByIdMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGifByIdMock.swift; sourceTree = "<group>"; };
 		8751A14A2BAED36E009FC688 /* TrendingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMock.swift; sourceTree = "<group>"; };
 		8751A14C2BAED3B2009FC688 /* SearchMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMock.swift; sourceTree = "<group>"; };
+		8751A1912BB2AFD6009FC688 /* GifyFetchedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifyFetchedData.swift; sourceTree = "<group>"; };
+		8751A1932BB2AFFA009FC688 /* Datum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datum.swift; sourceTree = "<group>"; };
 		879A801B2BADA1690057724D /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
 		879A801D2BADA3E10057724D /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -372,6 +376,8 @@
 				87C0F6DB2BAC056A002D54F9 /* AppErrorModel.swift */,
 				87C0F6ED2BAC672B002D54F9 /* GifData.swift */,
 				879A801B2BADA1690057724D /* FetchState.swift */,
+				8751A1912BB2AFD6009FC688 /* GifyFetchedData.swift */,
+				8751A1932BB2AFFA009FC688 /* Datum.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -600,6 +606,7 @@
 				879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */,
 				8751A1462BAED288009FC688 /* Extension+ URLSession.swift in Sources */,
 				87F82A642BA9BBBE006C7D06 /* TrendingApi.swift in Sources */,
+				8751A1942BB2AFFA009FC688 /* Datum.swift in Sources */,
 				87F82A5D2BA9B8B0006C7D06 /* AppViewController.swift in Sources */,
 				87F82A932BAAC8AD006C7D06 /* GifViewCell.swift in Sources */,
 				879A80212BADCEFD0057724D /* FetchingViewModelProtocol.swift in Sources */,
@@ -631,6 +638,7 @@
 				87C0F6DE2BAC1B2F002D54F9 /* FavoriteControllerViewModel.swift in Sources */,
 				87C0F6FB2BAC9E0D002D54F9 /* EmptyCollectionView.swift in Sources */,
 				87F82A6C2BA9BDE1006C7D06 /* GiphyData.swift in Sources */,
+				8751A1922BB2AFD6009FC688 /* GifyFetchedData.swift in Sources */,
 				87F82AC62BAB42C4006C7D06 /* AppViewControllerViewModel.swift in Sources */,
 				87C0F70B2BAD6EC1002D54F9 /* Texts.swift in Sources */,
 				87F82AC42BAB42AB006C7D06 /* ApiInteractor.swift in Sources */,

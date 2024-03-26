@@ -42,8 +42,13 @@ class FavoriteDecoratorProtocol: NSObject, DecoratorProtocol {
         guard let collectionView , let emptyContent else { return }
         diffableDataSource = UICollectionViewDiffableDataSource<Int, MGGif>(collectionView: collectionView) { (view, indexPath, item) -> UICollectionViewCell? in
             let cell = view.dequeueReusableCell(withReuseIdentifier: GifViewCell.identifier, for: indexPath) as! GifViewCell
-            let data = item.toGIfData()
-            cell.setup(gifData: data)
+            do {
+                let data = try item.toGIfData()
+                cell.setup(gifData: data)
+            } catch {
+                print(#function, error.localizedDescription, "cannot display a cell with no url")
+                cell.isHidden = true
+            }
             return cell
         }
         collectionView.setupGifCollectionView(dataSource: diffableDataSource, delegate: nil)

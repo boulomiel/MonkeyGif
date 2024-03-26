@@ -11,19 +11,19 @@ import CoreData
 extension MGGif {
     convenience init(context: NSManagedObjectContext,
                      isFavorite: Bool,
-                     url: String,
+                     url: URL,
                      imageID: UUID
     ) {
         self.init(context: context)
         self.isFavourite = isFavorite
-        self.url = url
+        self.url = url.absoluteString
         self.imageId = imageID
         self.date = .now
     }
     
-    func toGIfData() -> GifData {
-        GifData(imageId: imageId ?? .init(),
-                url: url ?? "",
+    func toGIfData() throws -> GifData {
+        try GifData(imageId: imageId ?? .init(),
+                url: URL(string: url ?? ""),
                 isFavorite: isFavourite)
     }
 }

@@ -7,35 +7,6 @@
 
 import Foundation
 
-extension Datum {
-    func toGifData(offset: Int = -1) -> GifData {
-        return GifData(
-            imageId: UUID(),
-            url: images?.downsized?.url ?? images?.original.url ?? "",
-            isFavorite: false
-        )
-    }
-}
-
-// MARK: - Welcome
-struct GiphySearchData: Codable {
-    let data: [Datum]
-}
-
-struct GiphyIDData: Codable {
-    let data: Datum
-}
-
-// MARK: - Datum
-struct Datum: Codable {
-    let images: Images?
-}
-
-// MARK: - Onclick
-struct Onclick: Codable {
-    let url: String
-}
-
 // MARK: - Images
 struct Images: Codable {
     let original: FixedHeight
@@ -75,13 +46,13 @@ struct Images: Codable {
 // MARK: - The480_WStill
 struct The480_WStill: Codable {
     let height, width, size: String?
-    let url: String?
+    let url: URL?
 }
 
 // MARK: - FixedHeight
 struct FixedHeight: Codable {
     let height, width, size: String?
-    let url: String?
+    let url: URL?
     let mp4Size: String?
     let mp4: String?
     let webpSize: String?
