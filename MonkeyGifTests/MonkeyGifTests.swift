@@ -31,36 +31,6 @@ final class MonkeyGifTests: XCTestCase {
         }
     }
     
-    class RepositoryMock: GifRepositoryProtocol {
-        
-        let controller:  GifControllerProtocol
-        let resultData: [GifData] = .init(repeating: .init(imageId: .init(), url: "", isFavorite: false), count: 4)
-        
-        init(controller: GifControllerProtocol) {
-            self.controller = controller
-        }
-        
-        func save(_ gifData: [MonkeyGif.GifData]) async throws {
-            try await controller.save(gifData)
-        }
-        
-        func fetchTrending(_ query: MonkeyGif.TrendingQuery) async -> MonkeyGif.GifDataResult {
-            return .success(resultData)
-        }
-        
-        func getGifById(_ query: MonkeyGif.GetByIdQuery) async -> MonkeyGif.GifDataResult {
-            return .success([resultData.first!])
-        }
-        
-        func searchGif(_ query: MonkeyGif.SearchQuery) async -> MonkeyGif.GifDataResult {
-            if query.q.isEmpty {
-                return .success([])
-            } else {
-                return .success(resultData)
-            }
-        }
-    }
-    
     class InteractorMock: ApiInteractorProtocol {
         
         let repository:  GifRepositoryProtocol
