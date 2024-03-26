@@ -26,6 +26,11 @@
 - 1 Custom view (Empty view)
 - Decoractors
 
+## Routing
+
+- GiphySceneCoordinator
+- Each Coordinator injected into controllers - Deinitialized when destroyed
+
 
 ## Tests
 

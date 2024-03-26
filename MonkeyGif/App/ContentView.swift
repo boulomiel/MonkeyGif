@@ -27,9 +27,10 @@ struct AppRepresentable: UIViewControllerRepresentable {
         let controller: GifControllerProtocol = GifController(controller: .shared)
         let repository: GifRepositoryProtocol = GifRepository(controller: controller, urlSession: .envSession)
         let interactor: ApiInteractorProtocol = ApiInteractor(repository: repository)
-        let viewModel: AppViewControllerViewModel = .init(apiKey: apiKey, interactor: interactor)
-        let appController =  AppViewController(viewModel: viewModel)
-        return UINavigationController(rootViewController: appController)
+        let navController = UINavigationController()
+        let appViewCoordinator = AppViewControllerCoordinator(navigationController: navController, apiKey: apiKey, apiInteractor: interactor)
+        appViewCoordinator.start()
+        return navController
     }
     
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {

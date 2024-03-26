@@ -16,13 +16,15 @@ class FavoriteViewController: UIViewController, ViewControllerProtocol, Collecti
     private var diffableDataSource: UICollectionViewDiffableDataSource<Int, MGGif>?
     private let viewModel: FavoriteViewControllerViewModel
     private var subscriptions: Set<AnyCancellable> = .init()
+    let coordinator: FavoriteViewControllerCoordinator
     
     lazy var favoriteDecorator: FavoriteDecoratorProtocol = {
         FavoriteDecoratorProtocol(holder: self)
     }()
     
-    init(viewModel: FavoriteViewControllerViewModel) {
+    init(viewModel: FavoriteViewControllerViewModel, coordinator: FavoriteViewControllerCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         self.subscriptions = .init()
         super.init(nibName: String(describing: Self.self), bundle: .main)
     }
@@ -57,7 +59,7 @@ class FavoriteViewController: UIViewController, ViewControllerProtocol, Collecti
     }
     
     @objc func backButtonAction() {
-        self.dismiss(animated: true)
+        coordinator.dismiss()
     }
     
     deinit {

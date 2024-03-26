@@ -16,6 +16,9 @@
 		8751A1502BAED73D009FC688 /* GetGifByIdMock.swift in Resources */ = {isa = PBXBuildFile; fileRef = 8751A1482BAED32F009FC688 /* GetGifByIdMock.swift */; };
 		8751A1922BB2AFD6009FC688 /* GifyFetchedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A1912BB2AFD6009FC688 /* GifyFetchedData.swift */; };
 		8751A1942BB2AFFA009FC688 /* Datum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A1932BB2AFFA009FC688 /* Datum.swift */; };
+		8751A1972BB2B187009FC688 /* GiphySceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A1962BB2B187009FC688 /* GiphySceneCoordinator.swift */; };
+		8751A1992BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A1982BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift */; };
+		8751A19B2BB2BA07009FC688 /* AppViewControllerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8751A19A2BB2BA07009FC688 /* AppViewControllerCoordinator.swift */; };
 		879A801C2BADA1690057724D /* FetchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801B2BADA1690057724D /* FetchState.swift */; };
 		879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801D2BADA3E10057724D /* Extension+UIViewController.swift */; };
 		879A80212BADCEFD0057724D /* FetchingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */; };
@@ -104,6 +107,9 @@
 		8751A14C2BAED3B2009FC688 /* SearchMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMock.swift; sourceTree = "<group>"; };
 		8751A1912BB2AFD6009FC688 /* GifyFetchedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifyFetchedData.swift; sourceTree = "<group>"; };
 		8751A1932BB2AFFA009FC688 /* Datum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datum.swift; sourceTree = "<group>"; };
+		8751A1962BB2B187009FC688 /* GiphySceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySceneCoordinator.swift; sourceTree = "<group>"; };
+		8751A1982BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewControllerCoordinator.swift; sourceTree = "<group>"; };
+		8751A19A2BB2BA07009FC688 /* AppViewControllerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewControllerCoordinator.swift; sourceTree = "<group>"; };
 		879A801B2BADA1690057724D /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
 		879A801D2BADA3E10057724D /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -193,6 +199,16 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		8751A1952BB2B179009FC688 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8751A1962BB2B187009FC688 /* GiphySceneCoordinator.swift */,
+				8751A1982BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift */,
+				8751A19A2BB2BA07009FC688 /* AppViewControllerCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		879A801F2BADCEEB0057724D /* ViewModelProtocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +228,7 @@
 		87C0F6E12BAC4D25002D54F9 /* GiphyScene */ = {
 			isa = PBXGroup;
 			children = (
+				8751A1952BB2B179009FC688 /* Coordinator */,
 				87C0F6EA2BAC653A002D54F9 /* Controller */,
 				87F82A582BA9B878006C7D06 /* UI */,
 				87F82A592BA9B87E006C7D06 /* Api */,
@@ -602,6 +619,7 @@
 				87F82A622BA9BAAF006C7D06 /* PlistReader.swift in Sources */,
 				87F82A692BA9BC3A006C7D06 /* ApiQueryProtocol.swift in Sources */,
 				8751A14D2BAED3B2009FC688 /* SearchMock.swift in Sources */,
+				8751A19B2BB2BA07009FC688 /* AppViewControllerCoordinator.swift in Sources */,
 				87F82A992BAAD618006C7D06 /* Extension+UIView.swift in Sources */,
 				879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */,
 				8751A1462BAED288009FC688 /* Extension+ URLSession.swift in Sources */,
@@ -621,9 +639,11 @@
 				87F82A452BA9B83A006C7D06 /* MonkeyGifApp.swift in Sources */,
 				87F82A4C2BA9B83A006C7D06 /* ContentView.swift in Sources */,
 				87F82A712BA9C4E8006C7D06 /* AppError.swift in Sources */,
+				8751A1992BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift in Sources */,
 				879A801C2BADA1690057724D /* FetchState.swift in Sources */,
 				87C0F6D82BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift in Sources */,
 				87C0F6FE2BAD5F7F002D54F9 /* XibView.swift in Sources */,
+				8751A1972BB2B187009FC688 /* GiphySceneCoordinator.swift in Sources */,
 				87F82A472BA9B83A006C7D06 /* Persistence.swift in Sources */,
 				87F82ABB2BAB38DE006C7D06 /* SearchControllerDecorator.swift in Sources */,
 				87F82ACB2BAB4B1F006C7D06 /* FavoriteViewController.swift in Sources */,

@@ -56,22 +56,40 @@ final class MonkeyGifTests: XCTestCase {
         }
     }
     
+    class AppViewControllerCoordinatorChild: AppViewControllerCoordinator {
+        
+        var started: Bool = false
+        var favoritesShown: Bool = false
+        
+        override func start() {
+            started = true
+        }
+        
+        override func showFavorites() {
+            favoritesShown = true
+        }
+    }
+    
     var appViewController: AppViewController!
     var appControllerViewModel: AppViewControllerViewModel!
+    var coordinator: AppViewControllerCoordinatorChild!
     var cancellables: Set<AnyCancellable>!
-    
     
     override func setUp() {
         cancellables = Set<AnyCancellable>()
         let controller = ControllerMock()
         let repository = GifRepository(controller: controller, urlSession: .envSession)
         let interactor = InteractorMock(repository: repository)
-        appControllerViewModel = .init(apiKey: "DcUNF908rOYRCIz5PneEqOJAL6g4LSNF", interactor: interactor)
+        coordinator = AppViewControllerCoordinatorChild(navigationController: .init(), apiKey:  "DcUNF908rOYRCIz5PneEqOJAL6g4LSNF", apiInteractor: interactor)
+        appControllerViewModel = .init(apiKey: coordinator.apiKey, interactor: interactor)
+        appViewController = .init(viewModel: appControllerViewModel, coordinator: coordinator)
     }
     
     override func tearDown() {
         appControllerViewModel = nil
         cancellables = nil
+        appViewController = nil
+        coordinator = nil
     }
     
     
@@ -82,10 +100,8 @@ final class MonkeyGifTests: XCTestCase {
         }
     }
     
-    @MainActor
     func testFetchingData() {
         let expectation = XCTestExpectation(description: "Async function completed")
-        appViewController = .init(viewModel: appControllerViewModel)
         var result: [GifData] = []
         appControllerViewModel.$fetchState
             .receive(on: DispatchQueue.main)
@@ -106,10 +122,8 @@ final class MonkeyGifTests: XCTestCase {
         XCTAssert(result.count == 2, "Result data is supposed to return 2 elements, not \(result.count)")
     }
     
-    @MainActor
     func testSearchingData() {
         let expectation = XCTestExpectation(description: "Async function completed")
-        appViewController = .init(viewModel: appControllerViewModel)
         var result: [GifData] = []
         appControllerViewModel.$fetchState
             .receive(on: DispatchQueue.main)
@@ -132,10 +146,8 @@ final class MonkeyGifTests: XCTestCase {
         XCTAssert(result.count == 4, "Result data is supposed to return 4 elements not \(result.count)")
     }
     
-    @MainActor
     func testSearchingDataEmptyQuery() {
         let expectation = XCTestExpectation(description: "Async function completed")
-        appViewController = .init(viewModel: appControllerViewModel)
         let currentstate = appControllerViewModel.fetchState
         self.appControllerViewModel.searchText = ""
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
@@ -145,12 +157,10 @@ final class MonkeyGifTests: XCTestCase {
         XCTAssert(appControllerViewModel.fetchState == currentstate, "The state is not supposed to change when input is empty")
     }
     
-    @MainActor
     func testSearchingById() {
         let expectation = XCTestExpectation(description: "Async function completed")
-        appViewController = .init(viewModel: appControllerViewModel)
         appControllerViewModel.toggleSearchState()
-        var currentstate = appControllerViewModel.fetchState
+        let currentstate = appControllerViewModel.fetchState
         var result: [GifData] = []
         appControllerViewModel.$fetchState
             .receive(on: DispatchQueue.main)
@@ -171,18 +181,22 @@ final class MonkeyGifTests: XCTestCase {
         XCTAssert(result.count == 1, "Search by id should return one element")
     }
     
-    @MainActor
     func testSearchingByIdDataEmptyQuery() {
         let expectation = XCTestExpectation(description: "Async function completed")
-        appViewController = .init(viewModel: appControllerViewModel)
         appControllerViewModel.toggleSearchState()
-        var currentstate = appControllerViewModel.fetchState
+        let currentstate = appControllerViewModel.fetchState
         self.appControllerViewModel.searchText = ""
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
             expectation.fulfill()
         })
         wait(for: [expectation], timeout: 2)
         XCTAssert(appControllerViewModel.fetchState == currentstate, "The state is not supposed to change when input is empty")
+    }
+    
+    func testCoordinator() {
+        XCTAssertTrue(coordinator.started, "start() must have been called")
+        appViewController.showFavorites()
+        XCTAssertTrue(coordinator.favoritesShown, "Favorites must be shown when show favorites icon tapped")
     }
     
 }

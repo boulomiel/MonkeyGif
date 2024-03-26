@@ -9,17 +9,20 @@ import UIKit
 import Combine
 
 protocol ViewControllerProtocol {
+    associatedtype Coordinator
+    var coordinator: Coordinator { get }
     func setupUI()
     func observeDataChanges()
 }
 
 class AppViewController: UIViewController, UISearchResultsUpdating, ViewControllerProtocol, CollectionRequestProtocol {
-    
+                
     @IBOutlet weak var emptyContent: EmptyCollectionView!
     @IBOutlet var collectionView: UICollectionView!
     private let viewModel: AppViewControllerViewModel
     private var subscriptions: Set<AnyCancellable>
-
+    let coordinator: AppViewControllerCoordinator
+    
     lazy var collectionDecorator: CollectionDecorator = {
         CollectionDecorator(holder: self)
     }()
@@ -34,9 +37,10 @@ class AppViewController: UIViewController, UISearchResultsUpdating, ViewControll
         }
     }
     
-    init(viewModel: AppViewControllerViewModel) {
+    init(viewModel: AppViewControllerViewModel, coordinator: Coordinator) {
         self.viewModel = viewModel
         self.subscriptions = .init()
+        self.coordinator = coordinator
         super.init(nibName: String(describing: Self.self), bundle: .main)
     }
     
@@ -88,9 +92,7 @@ class AppViewController: UIViewController, UISearchResultsUpdating, ViewControll
     }
     
     @objc func showFavorites() {
-        let favoriteVC =  FavoriteViewController(viewModel: .init())
-        let vc = UINavigationController(rootViewController: favoriteVC)
-        present(vc, animated: true)
+        coordinator.showFavorites()
     }
     
     @objc func request() {
