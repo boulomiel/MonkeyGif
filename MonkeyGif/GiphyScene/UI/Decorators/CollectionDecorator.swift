@@ -57,7 +57,7 @@ class CollectionDecorator: NSObject, DecoratorProtocol {
     func setup() {
         setupNavigationBar()
         emptyContent?.setEmptyType(.idle)
-        collectionView?.setupGifCollectionView(dataSource: self, delegate: self)
+        collectionView?.setupGifCollectionView(dataSource: self, delegate: self, layout: .MultipleItemLayout)
         collectionView?.refreshControl = refreshControl
     }
 
@@ -130,7 +130,7 @@ extension CollectionDecorator: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if data.count > 1, indexPath.item == data.count - 1  {
+        if data.count > 49, indexPath.item == data.count - 1  {
             holder?.request()
         }
     }

@@ -10,9 +10,9 @@ import UIKit
 
 extension UICollectionView {
     
-    func setupGifCollectionView(dataSource: UICollectionViewDataSource?, delegate: UICollectionViewDelegate?) {
+    func setupGifCollectionView(dataSource: UICollectionViewDataSource?, delegate: UICollectionViewDelegate?, layout: UICollectionViewCompositionalLayout) {
         register(GifViewCell.toNib(), forCellWithReuseIdentifier: GifViewCell.identifier)
-        collectionViewLayout = UICollectionViewCompositionalLayout.ThreeLineLayout
+        collectionViewLayout = layout
         self.dataSource = dataSource
         self.delegate = delegate
     }

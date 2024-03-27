@@ -22,4 +22,37 @@ extension UICollectionViewCompositionalLayout {
         section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
         return UICollectionViewCompositionalLayout(section: section)
     }
+    
+    static var MultipleItemLayout: UICollectionViewCompositionalLayout {
+        let inset: CGFloat = 5
+        let fraction: CGFloat = 0.5
+        
+        let firstItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let firstItem = NSCollectionLayoutItem(layoutSize: firstItemSize)
+        firstItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+        
+        let secondItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(fraction))
+        let secondItem = NSCollectionLayoutItem(layoutSize: secondItemSize)
+        secondItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+        
+        let thirdItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let thirdItem = NSCollectionLayoutItem(layoutSize: thirdItemSize)
+        thirdItem.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+        
+        let firstGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalWidth(fraction))
+        let secondGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/4), heightDimension: .fractionalWidth(fraction))
+        let thirdGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/4), heightDimension: .fractionalWidth(fraction))
+        
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(fraction))
+        
+        let firstGroup =  NSCollectionLayoutGroup.horizontal(layoutSize: firstGroupSize, subitems: [firstItem])
+        let thirdGroup = NSCollectionLayoutGroup.horizontal(layoutSize: thirdGroupSize, subitems: [thirdItem])
+        let secondGroup = NSCollectionLayoutGroup.vertical(layoutSize: secondGroupSize, subitems: [secondItem])
+        let mainGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [firstGroup, secondGroup, thirdGroup])
+        
+        let section = NSCollectionLayoutSection(group: mainGroup)
+        section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+        return UICollectionViewCompositionalLayout(section: section)
+    }
 }
