@@ -44,10 +44,6 @@ class EmptyCollectionView: XibView {
     
     @IBOutlet weak var labelView: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
-    override func setup() {
-        super.setup()
-    }
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         return nil

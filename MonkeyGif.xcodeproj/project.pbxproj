@@ -64,7 +64,6 @@
 		87F82A922BAAC8AD006C7D06 /* GifViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F82A912BAAC8AD006C7D06 /* GifViewCell.xib */; };
 		87F82A932BAAC8AD006C7D06 /* GifViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A902BAAC8AD006C7D06 /* GifViewCell.swift */; };
 		87F82A992BAAD618006C7D06 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A982BAAD618006C7D06 /* Extension+UIView.swift */; };
-		87F82A9B2BAAD63C006C7D06 /* Extension+ Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A9A2BAAD63C006C7D06 /* Extension+ Publishers.swift */; };
 		87F82A9D2BAB21F9006C7D06 /* Extension+MGGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A9C2BAB21F9006C7D06 /* Extension+MGGif.swift */; };
 		87F82AB82BAB2F44006C7D06 /* SwiftyGif.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F82AB62BAB2EFF006C7D06 /* SwiftyGif.xcframework */; };
 		87F82AB92BAB2F44006C7D06 /* SwiftyGif.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87F82AB62BAB2EFF006C7D06 /* SwiftyGif.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -160,7 +159,6 @@
 		87F82A902BAAC8AD006C7D06 /* GifViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifViewCell.swift; sourceTree = "<group>"; };
 		87F82A912BAAC8AD006C7D06 /* GifViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GifViewCell.xib; sourceTree = "<group>"; };
 		87F82A982BAAD618006C7D06 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
-		87F82A9A2BAAD63C006C7D06 /* Extension+ Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ Publishers.swift"; sourceTree = "<group>"; };
 		87F82A9C2BAB21F9006C7D06 /* Extension+MGGif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+MGGif.swift"; sourceTree = "<group>"; };
 		87F82AB62BAB2EFF006C7D06 /* SwiftyGif.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = SwiftyGif.xcframework; sourceTree = "<group>"; };
 		87F82ABA2BAB38DE006C7D06 /* SearchControllerDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerDecorator.swift; sourceTree = "<group>"; };
@@ -406,7 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				87F82A982BAAD618006C7D06 /* Extension+UIView.swift */,
-				87F82A9A2BAAD63C006C7D06 /* Extension+ Publishers.swift */,
 				87F82A9C2BAB21F9006C7D06 /* Extension+MGGif.swift */,
 				87C0F6D72BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift */,
 				87C0F6D92BAB4E8D002D54F9 /* Extension+CollectionView.swift */,
@@ -656,7 +653,6 @@
 				87F82A672BA9BBF4006C7D06 /* TrendingQuery.swift in Sources */,
 				87C0F6EE2BAC672B002D54F9 /* GifData.swift in Sources */,
 				87C0F6DA2BAB4E8D002D54F9 /* Extension+CollectionView.swift in Sources */,
-				87F82A9B2BAAD63C006C7D06 /* Extension+ Publishers.swift in Sources */,
 				87F82A752BA9C5D9006C7D06 /* SearchQuery.swift in Sources */,
 				87F82A772BA9CA48006C7D06 /* GetByIdQuery.swift in Sources */,
 				87C0F6DE2BAC1B2F002D54F9 /* FavoriteControllerViewModel.swift in Sources */,

@@ -7,14 +7,8 @@
 
 import Foundation
 
-enum FetchState<T>: Hashable {
-    static func == (lhs: FetchState<T>, rhs: FetchState<T>) -> Bool {
-        lhs.id ==  rhs.id
-    }
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
+enum FetchState<T> {
+
     case idle, fetched(T), failure(AppError)
     
     var id: Int {

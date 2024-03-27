@@ -13,7 +13,6 @@ class FavoriteViewController: UIViewController, ViewControllerProtocol, Collecti
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var emptyFavoriteView: EmptyCollectionView!
     
-    private var diffableDataSource: UICollectionViewDiffableDataSource<Int, MGGif>?
     private let viewModel: FavoriteViewControllerViewModel
     private var subscriptions: Set<AnyCancellable> = .init()
     let coordinator: FavoriteViewControllerCoordinator
@@ -42,6 +41,7 @@ class FavoriteViewController: UIViewController, ViewControllerProtocol, Collecti
     func setupUI() {
         favoriteDecorator.setup()
     }
+    
     func observeDataChanges() {
         viewModel.$fetchState
             .receive(on: DispatchQueue.main)

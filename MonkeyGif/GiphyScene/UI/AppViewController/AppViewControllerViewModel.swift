@@ -10,7 +10,7 @@ import Combine
 import CoreData
 import UIKit
 
-class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
+class AppViewControllerViewModel: FetchingViewModelProtocol {
         
     private let apiKey: String
     private let interactor: ApiInteractorProtocol
@@ -30,7 +30,6 @@ class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
         self.currentCount = 0
         self.fetchState = .idle
         self.searchState = .global
-        super.init()
         observeSearch()
     }
     
@@ -55,7 +54,11 @@ class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
                 .map { search in
                     switch self.searchState {
                     case .global:
-                        return await self.interactor.searchGif(.init(apiKey: self.apiKey, path: self.endPoints.search, limit: 50, q: search, offset: 0))
+                        var querySearch = search
+                        #if !CANCALL
+                            querySearch = "Food"
+                        #endif
+                        return await self.interactor.searchGif(.init(apiKey: self.apiKey, path: self.endPoints.search, limit: 50, q: querySearch, offset: 0))
                     case .byId:
                         return await self.interactor.getGifById(.init(apiKey: self.apiKey, gifId: search, path: self.endPoints.getById))
                     }
@@ -77,14 +80,14 @@ class AppViewControllerViewModel: NSObject, FetchingViewModelProtocol {
             let result =  await interactor.fetchTrending(.init(apiKey: apiKey, path: endPoints.trending, limit: 50, offset: currentCount))
             switch result {
             case .success(let success):
-                await MainActor.run {
-                    if case let .fetched(data) = self.fetchState {
-                        self.fetchState = .fetched(success+data)
-                    } else {
-                        self.fetchState = .fetched(success)
-                    }
-                    self.currentCount += 50
+                if case let .fetched(data) = self.fetchState {
+                    self.fetchState = .fetched(success+data)
+                } else {
+                    self.fetchState = .fetched(success)
                 }
+                #if CANCALL
+                self.currentCount += 50
+                #endif
             case .failure(let failure):
                 self.fetchState = .failure(failure)
             }

@@ -11,12 +11,14 @@ import UIKit
 
 class FavoriteViewControllerViewModel: NSObject, NSFetchedResultsControllerDelegate, FetchingViewModelProtocol {
     
+    private let viewContext: NSManagedObjectContext
     private var fetchedResultsController: NSFetchedResultsController<MGGif>?
     @Published var fetchState: FetchState<NSDiffableDataSourceSnapshot<Int, MGGif>>
     
-    init(fetchedResultsController: NSFetchedResultsController<MGGif>? = nil) {
+    init(fetchedResultsController: NSFetchedResultsController<MGGif>? = nil, viewContext: NSManagedObjectContext) {
         self.fetchedResultsController = fetchedResultsController
         self.fetchState = .idle
+        self.viewContext = viewContext
         super.init()
         loadSavedData()
     }
@@ -28,7 +30,7 @@ class FavoriteViewControllerViewModel: NSObject, NSFetchedResultsControllerDeleg
             request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
             fetchedResultsController = NSFetchedResultsController(
                 fetchRequest: request,
-                managedObjectContext: PersistenceController.shared.container.viewContext,
+                managedObjectContext: viewContext,
                 sectionNameKeyPath: nil, cacheName: nil)
             fetchedResultsController?.delegate = self
         }

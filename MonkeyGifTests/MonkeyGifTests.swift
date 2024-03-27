@@ -160,7 +160,6 @@ final class MonkeyGifTests: XCTestCase {
     func testSearchingById() {
         let expectation = XCTestExpectation(description: "Async function completed")
         appControllerViewModel.toggleSearchState()
-        let currentstate = appControllerViewModel.fetchState
         var result: [GifData] = []
         appControllerViewModel.$fetchState
             .receive(on: DispatchQueue.main)
