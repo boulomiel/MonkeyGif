@@ -21,18 +21,12 @@ struct GifController: GifControllerProtocol {
     }
     
     func save(_ gifData: [GifData]) async throws {
-        let viewContext = controller.container.viewContext
-        let backgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        backgroundContext.parent = viewContext
-        
+        let backgroundContext = controller.container.newBackgroundContext()
         await backgroundContext.perform {
             gifData.forEach { gif in
                 _ = MGGif(context: backgroundContext, isFavorite: gif.isFavorite, url: gif.url, imageID: gif.imageId)
             }
             try? backgroundContext.save()
-            viewContext.performAndWait {
-                try? viewContext.save()
-            }
         }
     }
 }
