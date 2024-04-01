@@ -10,9 +10,7 @@ import Combine
 import SwiftyGif
 
 class GifViewCell: UICollectionViewCell {
-    
-    static let identifier: String = "GifViewCell"
-    
+        
     @IBOutlet weak private (set) var gifImageView: UIImageView!
     
     override func awakeFromNib() {
@@ -29,10 +27,6 @@ class GifViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.gifImageView.image = nil
-    }
-    
-    static func toNib() -> UINib {
-        UINib(nibName: String(describing: GifViewCell.self), bundle: nil)
     }
 }
 

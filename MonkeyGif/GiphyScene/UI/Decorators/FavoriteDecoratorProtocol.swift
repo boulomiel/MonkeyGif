@@ -51,7 +51,7 @@ class FavoriteDecoratorProtocol: NSObject, DecoratorProtocol {
             }
             return cell
         }
-        collectionView.setupGifCollectionView(dataSource: diffableDataSource, delegate: nil, layout: .ThreeLineLayout)
+        collectionView.setupCollectionView(cell: GifViewCell.self, dataSource: diffableDataSource, delegate: nil, layout: .ThreeLineLayout)
         emptyContent.setEmptyType(.favorite)
         setupNavigationBar()
     }
