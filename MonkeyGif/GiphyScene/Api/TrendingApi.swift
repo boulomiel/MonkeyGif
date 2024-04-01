@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias GifySearchCallResult = Result<GiphySearchData, AppError>
-
 struct TrendingApi: ApiWorkerProtocol {
     
     typealias Query = TrendingQuery

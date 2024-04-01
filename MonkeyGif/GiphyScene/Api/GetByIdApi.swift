@@ -7,8 +7,6 @@
 
 import Foundation
 
-typealias GifyIDCallResult = Result<GiphyIDData, AppError>
-
 struct GetByIdApi: ApiWorkerProtocol {
     
     typealias Query = GetByIdQuery
