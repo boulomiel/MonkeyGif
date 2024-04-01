@@ -7,7 +7,11 @@
 
 import Foundation
 
-enum FetchState<T> {
+enum FetchState<T>: Equatable {
+    
+    static func ==(lhs: FetchState<T>, rhs: FetchState<T>) -> Bool {
+        return lhs.id == rhs.id
+    }
 
     case idle, fetched(T), failure(AppError)
     
