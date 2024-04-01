@@ -40,6 +40,7 @@
 		87C0F6FB2BAC9E0D002D54F9 /* EmptyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6FA2BAC9E0D002D54F9 /* EmptyCollectionView.swift */; };
 		87C0F6FE2BAD5F7F002D54F9 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6FD2BAD5F7F002D54F9 /* XibView.swift */; };
 		87C0F70B2BAD6EC1002D54F9 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F70A2BAD6EC1002D54F9 /* Texts.swift */; };
+		87C1A0F32BBA874D00D48F61 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C1A0F22BBA874D00D48F61 /* URLProtocolMock.swift */; };
 		87F82A452BA9B83A006C7D06 /* MonkeyGifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A442BA9B83A006C7D06 /* MonkeyGifApp.swift */; };
 		87F82A472BA9B83A006C7D06 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A462BA9B83A006C7D06 /* Persistence.swift */; };
 		87F82A4A2BA9B83A006C7D06 /* MonkeyGif.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A482BA9B83A006C7D06 /* MonkeyGif.xcdatamodeld */; };
@@ -132,6 +133,7 @@
 		87C0F6FA2BAC9E0D002D54F9 /* EmptyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionView.swift; sourceTree = "<group>"; };
 		87C0F6FD2BAD5F7F002D54F9 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		87C0F70A2BAD6EC1002D54F9 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
+		87C1A0F22BBA874D00D48F61 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 		87F82A412BA9B83A006C7D06 /* MonkeyGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonkeyGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F82A442BA9B83A006C7D06 /* MonkeyGifApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeyGifApp.swift; sourceTree = "<group>"; };
 		87F82A462BA9B83A006C7D06 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				8751A1482BAED32F009FC688 /* GetGifByIdMock.swift */,
 				8751A14A2BAED36E009FC688 /* TrendingMock.swift */,
 				8751A14C2BAED3B2009FC688 /* SearchMock.swift */,
+				87C1A0F22BBA874D00D48F61 /* URLProtocolMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				8751A19D2BB2BB80009FC688 /* ViewControllerProtocol.swift in Sources */,
 				87C0F6DC2BAC056A002D54F9 /* AppErrorModel.swift in Sources */,
 				87F82A4A2BA9B83A006C7D06 /* MonkeyGif.xcdatamodeld in Sources */,
+				87C1A0F32BBA874D00D48F61 /* URLProtocolMock.swift in Sources */,
 				87C0F6E72BAC50B9002D54F9 /* PlistDecodable.swift in Sources */,
 				87F82A6F2BA9C4D2006C7D06 /* ApiWorkerProtocol.swift in Sources */,
 				87F82ABE2BAB3925006C7D06 /* DecoratorProtocol.swift in Sources */,
