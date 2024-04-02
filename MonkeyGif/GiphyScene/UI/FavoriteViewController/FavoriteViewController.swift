@@ -11,7 +11,6 @@ import Combine
 class FavoriteViewController: UIViewController, ViewControllerProtocol, CollectionFavoriteProtocol {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var emptyFavoriteView: EmptyCollectionView!
     
     private let viewModel: FavoriteViewControllerViewModel
     private var subscriptions: Set<AnyCancellable> = .init()
@@ -50,7 +49,7 @@ class FavoriteViewController: UIViewController, ViewControllerProtocol, Collecti
                 case .idle:
                     break
                 case .fetched(let data):
-                    self?.favoriteDecorator.update(data: data)
+                    self?.favoriteDecorator.update(isEmpty: data.0, data: data.1)
                 case .failure(let error):
                     self?.showAlert(.init(error: error))
                 }

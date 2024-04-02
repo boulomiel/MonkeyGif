@@ -11,7 +11,6 @@ import CoreData
 
 @objc protocol CollectionRequestProtocol {
     var collectionView: UICollectionView! { get}
-    var emptyContent: EmptyCollectionView! { get }
     var switchAction: UIAction { get }
     func request()
     func showFavorites()
@@ -40,13 +39,9 @@ class CollectionDecorator: NSObject, DecoratorProtocol {
         holder?.collectionView
     }
     
-    private var emptyContent: EmptyCollectionView? {
-        holder?.emptyContent
-    }
-    
     init(holder: Holder) {
         self.holder = holder
-        self.data = []
+        self.data = [.init()]
         super.init()
     }
     
@@ -56,25 +51,15 @@ class CollectionDecorator: NSObject, DecoratorProtocol {
     
     func setup() {
         setupNavigationBar()
-        emptyContent?.setEmptyType(.idle)
-        collectionView?.setupCollectionView(cell: GifViewCell.self, dataSource: self, delegate: self, layout: .MultipleItemLayout)
+        collectionView?.setupCollectionView(cell: CellContainer<GifViewCell>(), CellContainer<EmptyContentCell>(), dataSource: self, delegate: self)
         collectionView?.refreshControl = refreshControl
     }
 
     func update(data: [GifData]) {
-        self.data = data
+        self.data = .init(data)
+        self.collectionView?.updateLayout(data.isEmpty ? .oneCellLayout : .multipleItemLayout)
         self.collectionView?.reloadData()
         self.refreshControl.endRefreshing()
-        self.emptyContent?.setEmptyType(.all)
-        let t: CGFloat = data.isEmpty ? 0.8 : 0
-        UIView.animateBouncy(withDuration: 0.3) {[weak self] in
-            self?.emptyContent?.transform = .init(scaleX: t, y: t)
-        } completion: { [weak self] _ in
-            UIView.animateBouncy(withDuration: 0.5) {
-                self?.emptyContent?.transform = t > 0 ? .identity : .init(scaleX: 0, y: 0)
-                self?.emptyContent?.isHidden = !data.isEmpty
-            }
-        }
     }
     
     func makeSwitch() -> UISwitch {
@@ -113,13 +98,13 @@ extension CollectionDecorator: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GifViewCell.identifier, for: indexPath) as! GifViewCell
-        cell.setup(gifData: data[indexPath.item])
-        return cell
+        collectionView.populateGifCell(with: data, for: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
-        if let firstIndex =  indexPaths.first {
+        if let first = data.first, first.isEmpty {
+            return nil
+        } else if let firstIndex =  indexPaths.first {
             return UIContextMenuConfiguration(actionProvider:  {[weak self] suggestedActions in
                 self?.contextMenu(gifData: self!.data[firstIndex.item])
             })

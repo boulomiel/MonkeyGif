@@ -10,7 +10,18 @@ import UIKit
 
 extension UICollectionViewCompositionalLayout {
     
-    static var ThreeLineLayout: UICollectionViewCompositionalLayout {
+    static var oneCellLayout: UICollectionViewCompositionalLayout {
+        let inset: CGFloat = 2.5
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
+        return UICollectionViewCompositionalLayout(section: section)
+    }
+    
+    static var threeLineLayout: UICollectionViewCompositionalLayout {
         let inset: CGFloat = 2.5
         let fraction: CGFloat = 1 / 3
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(fraction), heightDimension: .fractionalHeight(1))
@@ -23,7 +34,7 @@ extension UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout(section: section)
     }
     
-    static var MultipleItemLayout: UICollectionViewCompositionalLayout {
+    static var multipleItemLayout: UICollectionViewCompositionalLayout {
         let inset: CGFloat = 5
         let fraction: CGFloat = 0.5
         

@@ -13,7 +13,7 @@ class FavoriteViewControllerViewModel: NSObject, NSFetchedResultsControllerDeleg
     
     private let viewContext: NSManagedObjectContext
     private var fetchedResultsController: NSFetchedResultsController<MGGif>?
-    @Published var fetchState: FetchState<NSDiffableDataSourceSnapshot<Int, MGGif>>
+    @Published var fetchState: FetchState<(Bool, NSDiffableDataSourceSnapshot<Int, MGGif>)>
     
     init(fetchedResultsController: NSFetchedResultsController<MGGif>? = nil, viewContext: NSManagedObjectContext) {
         self.fetchedResultsController = fetchedResultsController
@@ -47,9 +47,16 @@ class FavoriteViewControllerViewModel: NSObject, NSFetchedResultsControllerDeleg
         diffableDataSourceSnapshot.appendSections([0])
         diffableDataSourceSnapshot.appendItems(fetchedResultsController?.fetchedObjects ?? [])
         fetchState = .fetched(diffableDataSourceSnapshot)
+        let isEmpty = objects.first?.imageId == nil
+        diffableDataSourceSnapshot.appendItems(items)
+        fetchState = .fetched((isEmpty, diffableDataSourceSnapshot))
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<any NSFetchRequestResult>) {
         updateSnapshot()
+    }
+    
+    deinit {
+        viewContext.rollback()
     }
 }

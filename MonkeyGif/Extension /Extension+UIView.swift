@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     static func animateBouncy(withDuration duration: TimeInterval,
-                              delay: TimeInterval = 0,
+                              delay: TimeInterval = 0.3,
                               damping: CGFloat = 0.5,
                               velocity: CGFloat = 0.5,
                               options: UIView.AnimationOptions = [],

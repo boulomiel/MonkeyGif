@@ -6,5 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 typealias GifDataResult = Result<[GifData], AppError>
+typealias CellContainer = UICollectionView.CellContainer

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 @objc protocol CollectionFavoriteProtocol {
-    var emptyFavoriteView: EmptyCollectionView! { get}
     var collectionView: UICollectionView! { get}
     func backButtonAction()
 }
@@ -25,10 +24,6 @@ class FavoriteDecoratorProtocol: NSObject, DecoratorProtocol {
         holder?.collectionView
     }
     
-    private var emptyContent: EmptyCollectionView? {
-        holder?.emptyFavoriteView
-    }
-    
     init(holder: Holder) {
         self.holder = holder
         super.init()
@@ -39,27 +34,22 @@ class FavoriteDecoratorProtocol: NSObject, DecoratorProtocol {
     }
     
     func setup() {
-        guard let collectionView , let emptyContent else { return }
+        guard let collectionView else { return }
         diffableDataSource = UICollectionViewDiffableDataSource<Int, MGGif>(collectionView: collectionView) { (view, indexPath, item) -> UICollectionViewCell? in
-            let cell = view.dequeueReusableCell(withReuseIdentifier: GifViewCell.identifier, for: indexPath) as! GifViewCell
-            do {
-                let data = try item.toGIfData()
-                cell.setup(gifData: data)
-            } catch {
-                print(#function, error.localizedDescription, "cannot display a cell with no url")
-                cell.isHidden = true
-            }
-            return cell
+            view.populateGifCellDiffable(item: item, indexPath: indexPath)
         }
-        collectionView.setupCollectionView(cell: GifViewCell.self, dataSource: diffableDataSource, delegate: nil, layout: .ThreeLineLayout)
-        emptyContent.setEmptyType(.favorite)
+        collectionView.setupCollectionView(cell: CellContainer<GifViewCell>(), CellContainer<EmptyContentCell>(), dataSource: diffableDataSource, delegate: nil)
         setupNavigationBar()
     }
 
-    func update(data: NSDiffableDataSourceSnapshot<Int, MGGif>) {
+    func update(isEmpty: Bool, data: NSDiffableDataSourceSnapshot<Int, MGGif>) {
+        if isEmpty {
+            collectionView?.updateLayout(.oneCellLayout)
+        } else {
+            collectionView?.updateLayout(.threeLineLayout)
+        }
         diffableDataSource?.apply(data, animatingDifferences: true)
         collectionView?.reloadData()
-        holder?.emptyFavoriteView.isHidden = !data.itemIdentifiers.isEmpty
     }
     
     private func setupNavigationBar() {

@@ -1,13 +1,13 @@
 //
-//  EmptyCollectionView.swift
+//  EmptyContentCell.swift
 //  MonkeyGif
 //
-//  Created by Ruben Mimoun on 21/03/2024.
+//  Created by Ruben Mimoun on 02/04/2024.
 //
 
 import UIKit
 
-class EmptyCollectionView: XibView {
+class EmptyContentCell: UICollectionViewCell {
     
     enum EmptyType {
         case all, favorite, idle
@@ -37,19 +37,25 @@ class EmptyCollectionView: XibView {
     
     private var emptyType: EmptyType = .idle {
         didSet {
-            self.imageView?.image = emptyType.image
-            self.labelView?.text = emptyType.label
+            self.imageView.image = emptyType.image
+            self.labelView.text = emptyType.label
         }
     }
     
-    @IBOutlet weak var labelView: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        return nil
+    @IBOutlet weak var labelView: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        emptyType = .idle
     }
     
-    func setEmptyType(_ emptyType: EmptyType) {
-        self.emptyType = emptyType
+    func show(for type: EmptyType) {
+        emptyType = type
+        transform = .init(scaleX: .zero, y: .zero)
+        UIView.animateBouncy(withDuration: 0.3) {[weak self] in
+            self?.transform = .identity
+        }
     }
+
 }

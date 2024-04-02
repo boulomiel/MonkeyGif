@@ -10,11 +10,12 @@ import Combine
 
 class AppViewController: UIViewController, UISearchResultsUpdating, ViewControllerProtocol, CollectionRequestProtocol {
                 
-    @IBOutlet weak var emptyContent: EmptyCollectionView!
+    
     @IBOutlet var collectionView: UICollectionView!
     private let viewModel: AppViewControllerViewModel
     private var subscriptions: Set<AnyCancellable>
     let coordinator: AppViewControllerCoordinator
+    
     
     lazy var collectionDecorator: CollectionDecorator = {
         CollectionDecorator(holder: self)

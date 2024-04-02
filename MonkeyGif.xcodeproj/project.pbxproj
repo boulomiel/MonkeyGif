@@ -24,6 +24,7 @@
 		879A801E2BADA3E10057724D /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A801D2BADA3E10057724D /* Extension+UIViewController.swift */; };
 		879A80212BADCEFD0057724D /* FetchingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */; };
 		879A80292BADD2950057724D /* MonkeyGifTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879A80282BADD2950057724D /* MonkeyGifTests.swift */; };
+		87AC31622BBBD1D300352F26 /* Extension+Array<GifData>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AC31612BBBD1D300352F26 /* Extension+Array<GifData>.swift */; };
 		87C0F6D82BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6D72BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift */; };
 		87C0F6DA2BAB4E8D002D54F9 /* Extension+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6D92BAB4E8D002D54F9 /* Extension+CollectionView.swift */; };
 		87C0F6DC2BAC056A002D54F9 /* AppErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6DB2BAC056A002D54F9 /* AppErrorModel.swift */; };
@@ -36,11 +37,10 @@
 		87C0F6EE2BAC672B002D54F9 /* GifData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6ED2BAC672B002D54F9 /* GifData.swift */; };
 		87C0F6F02BAC6760002D54F9 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6EF2BAC6760002D54F9 /* Extension+UIImage.swift */; };
 		87C0F6F62BAC71F7002D54F9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 87C0F6F52BAC71F7002D54F9 /* README.md */; };
-		87C0F6F92BAC9E02002D54F9 /* EmptyCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C0F6F82BAC9E02002D54F9 /* EmptyCollectionView.xib */; };
-		87C0F6FB2BAC9E0D002D54F9 /* EmptyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6FA2BAC9E0D002D54F9 /* EmptyCollectionView.swift */; };
-		87C0F6FE2BAD5F7F002D54F9 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F6FD2BAD5F7F002D54F9 /* XibView.swift */; };
 		87C0F70B2BAD6EC1002D54F9 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0F70A2BAD6EC1002D54F9 /* Texts.swift */; };
 		87C1A0F32BBA874D00D48F61 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C1A0F22BBA874D00D48F61 /* URLProtocolMock.swift */; };
+		87CE62F72BBBFE3D00C0B246 /* EmptyContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87CE62F62BBBFE3D00C0B246 /* EmptyContentCell.xib */; };
+		87CE62F82BBBFE3D00C0B246 /* EmptyContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE62F52BBBFE3D00C0B246 /* EmptyContentCell.swift */; };
 		87F82A452BA9B83A006C7D06 /* MonkeyGifApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A442BA9B83A006C7D06 /* MonkeyGifApp.swift */; };
 		87F82A472BA9B83A006C7D06 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A462BA9B83A006C7D06 /* Persistence.swift */; };
 		87F82A4A2BA9B83A006C7D06 /* MonkeyGif.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87F82A482BA9B83A006C7D06 /* MonkeyGif.xcdatamodeld */; };
@@ -117,6 +117,7 @@
 		879A80202BADCEFD0057724D /* FetchingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingViewModelProtocol.swift; sourceTree = "<group>"; };
 		879A80262BADD2950057724D /* MonkeyGifTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonkeyGifTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		879A80282BADD2950057724D /* MonkeyGifTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeyGifTests.swift; sourceTree = "<group>"; };
+		87AC31612BBBD1D300352F26 /* Extension+Array<GifData>.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Array<GifData>.swift"; sourceTree = "<group>"; };
 		87C0F6D72BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionViewCompositionalLayout.swift"; sourceTree = "<group>"; };
 		87C0F6D92BAB4E8D002D54F9 /* Extension+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CollectionView.swift"; sourceTree = "<group>"; };
 		87C0F6DB2BAC056A002D54F9 /* AppErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorModel.swift; sourceTree = "<group>"; };
@@ -129,11 +130,10 @@
 		87C0F6ED2BAC672B002D54F9 /* GifData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifData.swift; sourceTree = "<group>"; };
 		87C0F6EF2BAC6760002D54F9 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		87C0F6F52BAC71F7002D54F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		87C0F6F82BAC9E02002D54F9 /* EmptyCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCollectionView.xib; sourceTree = "<group>"; };
-		87C0F6FA2BAC9E0D002D54F9 /* EmptyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCollectionView.swift; sourceTree = "<group>"; };
-		87C0F6FD2BAD5F7F002D54F9 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		87C0F70A2BAD6EC1002D54F9 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		87C1A0F22BBA874D00D48F61 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		87CE62F52BBBFE3D00C0B246 /* EmptyContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContentCell.swift; sourceTree = "<group>"; };
+		87CE62F62BBBFE3D00C0B246 /* EmptyContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyContentCell.xib; sourceTree = "<group>"; };
 		87F82A412BA9B83A006C7D06 /* MonkeyGif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonkeyGif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F82A442BA9B83A006C7D06 /* MonkeyGifApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeyGifApp.swift; sourceTree = "<group>"; };
 		87F82A462BA9B83A006C7D06 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -273,19 +273,19 @@
 		87C0F6F72BAC9DD4002D54F9 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				87C0F6FC2BAD5F67002D54F9 /* EmptyCollectionView */,
-				87C0F6FD2BAD5F7F002D54F9 /* XibView.swift */,
+				87F82A942BAAC8B7006C7D06 /* GifViewCell */,
+				87C0F6FC2BAD5F67002D54F9 /* EmptyContentCell */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
 		};
-		87C0F6FC2BAD5F67002D54F9 /* EmptyCollectionView */ = {
+		87C0F6FC2BAD5F67002D54F9 /* EmptyContentCell */ = {
 			isa = PBXGroup;
 			children = (
-				87C0F6F82BAC9E02002D54F9 /* EmptyCollectionView.xib */,
-				87C0F6FA2BAC9E0D002D54F9 /* EmptyCollectionView.swift */,
+				87CE62F52BBBFE3D00C0B246 /* EmptyContentCell.swift */,
+				87CE62F62BBBFE3D00C0B246 /* EmptyContentCell.xib */,
 			);
-			path = EmptyCollectionView;
+			path = EmptyContentCell;
 			sourceTree = "<group>";
 		};
 		87C0F7092BAD6EAF002D54F9 /* Text */ = {
@@ -413,6 +413,7 @@
 				87C0F6EF2BAC6760002D54F9 /* Extension+UIImage.swift */,
 				879A801D2BADA3E10057724D /* Extension+UIViewController.swift */,
 				8751A1452BAED288009FC688 /* Extension+ URLSession.swift */,
+				87AC31612BBBD1D300352F26 /* Extension+Array<GifData>.swift */,
 			);
 			path = "Extension ";
 			sourceTree = "<group>";
@@ -442,7 +443,6 @@
 		87F82A8F2BAAC882006C7D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				87F82A942BAAC8B7006C7D06 /* GifViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -593,8 +593,8 @@
 				87F82A5C2BA9B8B0006C7D06 /* AppViewController.xib in Resources */,
 				87F82A4E2BA9B83B006C7D06 /* Assets.xcassets in Resources */,
 				87C0F6F62BAC71F7002D54F9 /* README.md in Resources */,
-				87C0F6F92BAC9E02002D54F9 /* EmptyCollectionView.xib in Resources */,
 				87C0F6E52BAC4E35002D54F9 /* Endpoints.plist in Resources */,
+				87CE62F72BBBFE3D00C0B246 /* EmptyContentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,7 +647,6 @@
 				8751A1992BB2B9F4009FC688 /* FavoriteViewControllerCoordinator.swift in Sources */,
 				879A801C2BADA1690057724D /* FetchState.swift in Sources */,
 				87C0F6D82BAB4E25002D54F9 /* Extension+UICollectionViewCompositionalLayout.swift in Sources */,
-				87C0F6FE2BAD5F7F002D54F9 /* XibView.swift in Sources */,
 				8751A1972BB2B187009FC688 /* GiphySceneCoordinator.swift in Sources */,
 				87F82A472BA9B83A006C7D06 /* Persistence.swift in Sources */,
 				87F82ABB2BAB38DE006C7D06 /* SearchControllerDecorator.swift in Sources */,
@@ -660,12 +659,13 @@
 				87F82A752BA9C5D9006C7D06 /* SearchQuery.swift in Sources */,
 				87F82A772BA9CA48006C7D06 /* GetByIdQuery.swift in Sources */,
 				87C0F6DE2BAC1B2F002D54F9 /* FavoriteControllerViewModel.swift in Sources */,
-				87C0F6FB2BAC9E0D002D54F9 /* EmptyCollectionView.swift in Sources */,
 				87F82A6C2BA9BDE1006C7D06 /* GiphyData.swift in Sources */,
 				8751A1922BB2AFD6009FC688 /* GifyFetchedData.swift in Sources */,
 				87F82AC62BAB42C4006C7D06 /* AppViewControllerViewModel.swift in Sources */,
 				87C0F70B2BAD6EC1002D54F9 /* Texts.swift in Sources */,
+				87CE62F82BBBFE3D00C0B246 /* EmptyContentCell.swift in Sources */,
 				87F82AC42BAB42AB006C7D06 /* ApiInteractor.swift in Sources */,
+				87AC31622BBBD1D300352F26 /* Extension+Array<GifData>.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
