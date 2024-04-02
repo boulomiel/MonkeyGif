@@ -45,8 +45,8 @@ class FavoriteViewControllerViewModel: NSObject, NSFetchedResultsControllerDeleg
     private func updateSnapshot() {
         var diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot<Int, MGGif>()
         diffableDataSourceSnapshot.appendSections([0])
-        diffableDataSourceSnapshot.appendItems(fetchedResultsController?.fetchedObjects ?? [])
-        fetchState = .fetched(diffableDataSourceSnapshot)
+        let objects = fetchedResultsController?.fetchedObjects ?? []
+        let items = objects.isEmpty ? [MGGif(context: viewContext)] : objects
         let isEmpty = objects.first?.imageId == nil
         diffableDataSourceSnapshot.appendItems(items)
         fetchState = .fetched((isEmpty, diffableDataSourceSnapshot))
