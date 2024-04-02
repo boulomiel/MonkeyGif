@@ -22,9 +22,11 @@
 
 - The app is wrapped in UIRepresentable to be added with SwiftUI
 - 2 UIViewControllers + 2 nibs
-- 1 Custom cell view + nib
-- 1 Custom view (Empty view)
+- 2 Custom cell view + nib
+- UICollectionViewCompositionalLayout
 - Decoractors
+- Register Multiple Cells with parameters packs
+
 
 ## Routing
 
